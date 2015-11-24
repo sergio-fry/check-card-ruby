@@ -4,17 +4,13 @@ Before a credit card is submitted to a financial institution, it generally makes
 
 The first check people often do is to validate that the card matches a known pattern from one of the accepted card providers. Some of these patterns are:
 
-+============+=============+===============+
+
 | Card Type  | Begins With | Number Length |
-+============+=============+===============+
+|------------|-------------|---------------|
 | AMEX       | 34 or 37    | 15            |
-+------------+-------------+---------------+
 | Discover   | 6011        | 16            |
-+------------+-------------+---------------+
 | MasterCard | 51-55       | 16            |
-+------------+-------------+---------------+
 | Visa       | 4           | 13 or 16      |
-+------------+-------------+---------------+
 
 All of these card types also generate numbers such that they can be validated by the Luhn algorithm, so that's the second check systems usually try. The steps are:
 
@@ -25,17 +21,17 @@ All of these card types also generate numbers such that they can be validated by
 
 For example, given the card number 4408 0412 3456 7893:
 
-Step 1:  8 4 0 8 0 4 2 2 6 4 10 6 14 8 18 3
-Step 2:  8+4+0+8+0+4+2+2+6+4+1+0+6+1+4+8+1+8+3 = 70
-Step 3:  70 % 10 == 0
+    Step 1:  8 4 0 8 0 4 2 2 6 4 10 6 14 8 18 3
+    Step 2:  8+4+0+8+0+4+2+2+6+4+1+0+6+1+4+8+1+8+3 = 70
+    Step 3:  70 % 10 == 0
 
 Thus that card is valid.
 
 Let's try one more, 4417 1234 5678 9112:
 
-Step 1:  8 4 2 7 2 2 6 4 10 6 14 8 18 1 2 2
-Step 2:  8+4+2+7+2+2+6+4+1+0+6+1+4+8+1+8+1+2+2 = 69
-Step 3:  69 % 10 != 0
+    Step 1:  8 4 2 7 2 2 6 4 10 6 14 8 18 1 2 2
+    Step 2:  8+4+2+7+2+2+6+4+1+0+6+1+4+8+1+8+1+2+2 = 69
+    Step 3:  69 % 10 != 0
 
 That card is not valid.
 
