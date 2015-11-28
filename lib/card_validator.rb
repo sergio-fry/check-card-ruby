@@ -6,7 +6,7 @@ module CardValidator
       "AMEX"
     elsif card.start_with?("6011") && card.size == 16
       "Discover"
-    elsif card.start_with?(*(51..55).map(&:to_s)) && card.size == 16
+    elsif card.start_with?("51", "52", "53", "54", "55") && card.size == 16
       "MasterCard"
     elsif card.start_with?("4") && [13, 16].include?(card.size)
       "Visa"
