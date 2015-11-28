@@ -8,6 +8,8 @@ module CardValidator
       "Discover"
     elsif (51..55).include?(card[0..1].to_i) && card.size == 16
       "MasterCard"
+    elsif card[0] == "4" && [13, 16].include?(card.size)
+      "Visa"
     else
       "Unknown"
     end
