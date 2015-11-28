@@ -17,7 +17,6 @@ module CardValidator
 
   def luhn_check(card)
     step1 = luhn_check_step1(card)
-    puts step1.inspect
     step2 = step1.join.chars.map(&:to_i).inject{ |sum, x| sum + x }
     step3 = step2 % 10
 
