@@ -1,8 +1,6 @@
 # CardValidator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/card_validator`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Card number validator
 
 ## Installation
 
@@ -22,13 +20,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Shell:
 
-## Development
+```shell
+$ ./bin/validate "4154 8120 0024 2762"
+Checking card '4154812000242762'
+Valid Visa
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Ruby:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+include CardValidator
+
+puts detect_type("6011111111111117") # => "Discover"
+puts detect_type("123456") # => "Unknown"
+
+puts validate("6011111111111117") # => true
+
+```
+
 
 
 # Checking Credit Cards
@@ -69,4 +80,3 @@ Let's try one more, 4417 1234 5678 9112:
 That card is not valid.
 
 This week's Ruby Quiz is to write a program that accepts a credit card number as a command-line argument. The program should print the card's type (or Unknown) as well a Valid/Invalid indication of whether or not the card passes the Luhn algorithm.
-=======
