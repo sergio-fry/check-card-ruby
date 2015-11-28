@@ -49,4 +49,16 @@ describe CardValidator do
       end
     end
   end
+
+  describe "#luhn_check" do
+    {
+      "1234" => false,
+      "4408041234567893" => true,
+      "4417123456789112" => false,
+    }.each do |arg, result|
+      it "should be #{result} when #{arg} passed" do
+        expect(luhn_check(arg)).to eq(result)
+      end
+    end
+  end
 end
