@@ -6,6 +6,8 @@ module CardValidator
       "AMEX"
     elsif card[0..3].to_i == 6011 && card.size == 16
       "Discover"
+    elsif (51..55).include?(card[0..1].to_i) && card.size == 16
+      "MasterCard"
     else
       "Unknown"
     end
