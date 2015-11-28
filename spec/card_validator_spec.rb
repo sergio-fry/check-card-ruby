@@ -38,4 +38,15 @@ describe CardValidator do
       end
     end
   end
+
+  describe "#luhn_check_step1" do
+    {
+      "1234" => [2, 2, 6, 4],
+      "4408041234567893" => %w(8 4 0 8 0 4 2 2 6 4 10 6 14 8 18 3).map(&:to_i),
+    }.each do |from, to|
+      it "should convert #{from} to #{to}" do
+        expect(luhn_check_step1(from)).to eq(to)
+      end
+    end
+  end
 end

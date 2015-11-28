@@ -14,4 +14,16 @@ module CardValidator
       "Unknown"
     end
   end
+
+  def luhn_check_step1(card)
+    numbers = []
+
+    card.chars.map(&:to_i).each_with_index do |digit, index|
+      digit *= 2 if index % 2 == 0
+
+      numbers << digit
+    end
+
+    numbers
+  end
 end
